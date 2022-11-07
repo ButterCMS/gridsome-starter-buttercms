@@ -58,16 +58,11 @@
 </template>
 
 <script>
-import { getButterCMS } from '@/utils/ButterCMS'
-
-const butterCMS = getButterCMS()
-
 export default {
   props: ['menuItems', 'activeLink'],
   data() {
     return {
       socialSites: ['facebook', 'linkedin', 'instagram', 'twitter'],
-      butterCMS,
     }
   },
 }

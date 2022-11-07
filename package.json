@@ -12,7 +12,8 @@
     "buttercms": "^1.2.8",
     "gridsome": "^0.7.0",
     "tiny-slider": "^2.9.4",
-    "vite": "^2.8.4"
+    "vite": "^2.8.4",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",

@@ -1,29 +1,3 @@
-<script setup>
-import { onMounted, ref } from 'vue'
-
-const isSticky = ref(true)
-const isTogglerActive = ref(false)
-
-const props = defineProps(['menuItems', 'activeLink'])
-
-const toggleToggler = () => {
-  isTogglerActive.value = !isTogglerActive.value
-}
-
-const headerNavbar = ref(null)
-const onScroll = () => {
-  if (headerNavbar.value) {
-    const sticky = headerNavbar.value.offsetTop
-    isSticky.value = window.scrollY > sticky
-  }
-}
-onMounted(() => {
-  onScroll()
-  window.document.addEventListener('scroll', onScroll, { passive: true })
-  return () => window.document.removeEventListener('scroll', onScroll)
-})
-</script>
-
 <template>
   <header class="header">
     <div class="navbar-area" ref="headerNavbar" :class="{ sticky: isSticky }">
@@ -61,17 +35,17 @@ onMounted(() => {
                 <div class="ms-auto">
                   <ul id="nav" class="navbar-nav ms-auto">
                     <li
-                      v-for="menuItem in props.menuItems"
+                      v-for="menuItem in menuItems"
                       :key="menuItem.url"
                       class="nav-item"
                     >
                       <a
                         class="nav-link page-scroll"
-                        :class="{ active: activeLink === '/' + menuItem.url }"
-                        :href="'/' + menuItem.url"
+                        :class="{ active: activeLink === `/${menuItem.url}` }"
+                        :href="`/${menuItem.url}`"
                         @click="isTogglerActive = false"
-                        >{{ menuItem.label }}</a
-                      >
+                        >{{ menuItem.label }}
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -84,4 +58,35 @@ onMounted(() => {
   </header>
 </template>
 
-<style scoped></style>
+<script>
+import { ref } from 'vue'
+
+const isSticky = ref(true)
+const isTogglerActive = ref(false)
+
+const headerNavbar = ref(null)
+const onScroll = () => {
+  if (headerNavbar.value) {
+    const sticky = headerNavbar.value.offsetTop
+    isSticky.value = window.scrollY > sticky
+  }
+}
+export default {
+  props: ['menuItems', 'activeLink'],
+  data() {
+    return {
+      toggleToggler: () => {
+        isTogglerActive.value = !isTogglerActive.value
+      },
+      isSticky,
+      isTogglerActive,
+      headerNavbar,
+    }
+  },
+  mounted() {
+    onScroll()
+    window.document.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.document.removeEventListener('scroll', onScroll)
+  },
+}
+</script>

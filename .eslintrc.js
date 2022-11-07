@@ -15,12 +15,7 @@ module.exports = {
   rules: {
     'no-console': 'error',
     'no-debugger': 'error',
-    'vue/multi-word-component-names': [
-      'error',
-      {
-        ignores: ['Default', 'Layout', 'Index'],
-      },
-    ],
+    'vue/multi-word-component-names': 0,
   },
   overrides: [
     {

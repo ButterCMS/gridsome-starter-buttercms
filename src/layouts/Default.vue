@@ -1,42 +1,87 @@
 <template>
-  <div class="layout">
+  <div>
+    <ButterHeader :menu-items="menuItems" :active-link="activeLink" />
     <slot />
+    <ScrollToTop />
+    <ButterFooter :menu-items="menuItems" :active-link="activeLink" />
   </div>
 </template>
 
-<static-query>
-query {
-metadata {
-siteName
-}
-}
-</static-query>
+<script>
+import { nextTick, provide, ref } from 'vue'
+import ButterFooter from '@/components/ButterFooter'
+import ButterHeader from '@/components/ButterHeader'
+import ScrollToTop from '@/components/ScrollToTop'
 
-<style>
-body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.5;
+const activeLink = ref('')
+const route = ref(undefined)
+
+export default {
+  data() {
+    return {
+      activeLink,
+    }
+  },
+  mounted() {
+    route.value = this.$route
+    window.addEventListener('load', scrollToSection)
+    window.document.addEventListener('scroll', onScroll, { passive: true })
+  },
+  unmounted() {
+    window.removeEventListener('load', scrollToSection)
+    window.document.removeEventListener('scroll', onScroll)
+  },
+  setup() {
+    provide('layout', {
+      handleMounted,
+    })
+  },
+  props: ['menuItems'],
+  components: {
+    ButterFooter,
+    ButterHeader,
+    ScrollToTop,
+  },
 }
 
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+const onScroll = () => {
+  const sections = document.querySelectorAll('.page-scroll')
+  const scrollPos =
+    window.pageYOffset ||
+    document.documentElement.scrollTop ||
+    document.body.scrollTop
+
+  for (let currLink of sections) {
+    const currLinkHref = currLink.getAttribute('href')
+    const val = currLinkHref?.replace('/', '')
+    const refElement = document.querySelector(String(val))
+    const scrollTopMinus = scrollPos + 73
+
+    if (
+      refElement &&
+      refElement?.offsetTop <= scrollTopMinus &&
+      refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+    ) {
+      activeLink.value = String(currLinkHref)
+    }
+  }
+}
+const scrollToSection = async () => {
+  await nextTick()
+
+  if (route.value.hash) {
+    const elementToScrollId = route.value.hash.slice(1)
+    const elem = document.getElementById(elementToScrollId)
+
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' })
+    }
+  } else {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
+function handleMounted() {
+  scrollToSection()
 }
-
-.nav__link {
-  margin-left: 20px;
-}
-</style>
+</script>
