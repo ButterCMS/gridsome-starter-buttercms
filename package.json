@@ -1,0 +1,30 @@
+{
+  "name": "gridsome-starter-buttercms",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^2.2.2",
+    "buttercms": "^1.2.8",
+    "gridsome": "^0.7.0",
+    "tiny-slider": "^2.9.4",
+    "vite": "^2.8.4"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.1.0",
+    "@types/node": "^16.11.26",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint": "8.22.0",
+    "eslint-plugin-gridsome": "^1.6.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.7.0",
+    "prettier": "^2.7.1",
+    "vue-tsc": "^0.31.4"
+  }
+}
