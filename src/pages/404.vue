@@ -23,10 +23,3 @@
     </div>
   </section>
 </template>
-
-<script>
-// eslint-disable-next-line no-console
-console.error(
-  'Your Butter token might be set to an invalid value. Please verify your token is correct.'
-)
-</script>

@@ -2,11 +2,11 @@
   <div class="col-lg-6 col-md-6">
     <div class="single-feature">
       <div class="feature-icon">
-        <img :src="feature.icon" alt="" />
+        <img :src="featureData.icon" alt="" />
       </div>
       <div class="feature-content">
-        <h4>{{ feature.headline }}</h4>
-        <p>{{ feature.description }}</p>
+        <h4>{{ featureData.headline }}</h4>
+        <p>{{ featureData.description }}</p>
       </div>
     </div>
   </div>
@@ -14,6 +14,6 @@
 
 <script>
 export default {
-  props: ['feature'],
+  props: ['featureData'],
 }
 </script>

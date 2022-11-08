@@ -1,17 +1,16 @@
 <template>
   <div>
-    <ButterHeader :menu-items="menuItems" :active-link="activeLink" />
+    <butter-header :menu-items="menuItems" :active-link="activeLink" />
     <slot />
     <ScrollToTop />
-    <ButterFooter :menu-items="menuItems" :active-link="activeLink" />
+    <butter-footer :menu-items="menuItems" :active-link="activeLink" />
   </div>
 </template>
 
 <script>
 import { nextTick, provide, ref } from 'vue'
-import ButterFooter from '@/components/ButterFooter'
-import ButterHeader from '@/components/ButterHeader'
 import ScrollToTop from '@/components/ScrollToTop'
+import HomeView from '@/views/HomeView'
 
 const activeLink = ref('')
 const route = ref(undefined)
@@ -23,7 +22,6 @@ export default {
     }
   },
   mounted() {
-    route.value = this.$route
     window.addEventListener('load', scrollToSection)
     window.document.addEventListener('scroll', onScroll, { passive: true })
   },
@@ -38,8 +36,7 @@ export default {
   },
   props: ['menuItems'],
   components: {
-    ButterFooter,
-    ButterHeader,
+    HomeView,
     ScrollToTop,
   },
 }

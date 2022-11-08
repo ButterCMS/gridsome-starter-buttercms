@@ -4,7 +4,7 @@
     <NoApiKeyView v-else-if="!apiKeyExists" />
     <NoApiTokenView v-else-if="error" />
     <DefaultLayout :menu-items="items" v-else>
-      <RouterView />
+      <HomeView />
     </DefaultLayout>
   </div>
 </template>
@@ -14,13 +14,15 @@ import { useApiError, useMenuItems } from '@/utils/hooks'
 import Spinner from '@/components/Spinner'
 import NoApiKeyView from '@/views/NoApiKeyView'
 import NoApiTokenView from '@/views/NoApiTokenView'
+import HomeView from '@/views/HomeView'
 
 const { items, loading } = useMenuItems()
 const { error } = useApiError()
 
 export default {
-  components: { NoApiTokenView, NoApiKeyView, Spinner },
+  components: { HomeView, NoApiTokenView, NoApiKeyView, Spinner },
   data() {
+    console.log('error: ', error)
     return {
       items,
       loading,

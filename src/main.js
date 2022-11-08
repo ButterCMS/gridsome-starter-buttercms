@@ -5,9 +5,11 @@ import '~/assets/css/bootstrap.min.css'
 import '~/assets/css/main.css'
 import '~/assets/css/lineicons.css'
 import '~/assets/css/tiny-slider.css'
+import ButterHeader from '@/components/ButterHeader'
+import ButterFooter from '@/components/ButterFooter'
 
 export default function (Vue, { router, head, isClient }) {
-  // Set default layout as a global component
-  // eslint-disable-next-line vue/multi-word-component-names
   Vue.component('DefaultLayout', DefaultLayout)
+  Vue.component('ButterHeader', ButterHeader)
+  Vue.component('ButterFooter', ButterFooter)
 }
