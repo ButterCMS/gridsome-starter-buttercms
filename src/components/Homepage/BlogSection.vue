@@ -19,19 +19,34 @@
       </div>
       <div class="row justify-content-center">
         <blog-post-tile
-          v-for="(blogPost, index) in blogPosts"
+          v-for="({ node }, index) in $static.blogPosts.edges"
           :key="index"
-          v-bind="blogPost"
+          v-bind="node"
         />
       </div>
     </div>
   </section>
 </template>
 
+<static-query>
+query {
+	blogPosts: allBlogPosts(perPage: 2, page: 1, order: ASC) {
+    edges {
+      node {
+        title,
+        slug,
+        summary,
+        featured_image_alt,
+        featured_image,
+      }
+    }
+  }
+}
+</static-query>
+
 <script>
 import BlogPostTile from '@/components/BlogPostTile'
 export default {
   components: { BlogPostTile },
-  props: ['blogPosts'],
 }
 </script>

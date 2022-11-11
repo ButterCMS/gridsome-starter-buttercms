@@ -13,9 +13,9 @@
     <div class="widget categories-widget">
       <h5 class="widget-title">Categories</h5>
       <ul class="categories-list">
-        <li v-for="category in categories" :key="category.slug">
-          <g-link :to="`/blog/category/${category.slug}/`">
-            {{ category.name }}
+        <li v-for="{ node } in $static.categories.edges" :key="node.slug">
+          <g-link :to="`/blog/category/${node.slug}/`">
+            {{ node.name }}
           </g-link>
         </li>
       </ul>
@@ -23,8 +23,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ['categories'],
+<static-query>
+query {
+	categories: allCategories {
+    edges {
+      node {
+        name,
+        slug
+      }
+    }
+  }
 }
-</script>
+</static-query>

@@ -1,16 +1,15 @@
 <template>
   <div>
-    <butter-header :menu-items="menuItems" :active-link="activeLink" />
+    <butter-header :active-link="activeLink" />
     <slot />
     <ScrollToTop />
-    <butter-footer :menu-items="menuItems" :active-link="activeLink" />
+    <butter-footer :active-link="activeLink" />
   </div>
 </template>
 
 <script>
 import { nextTick, provide, ref } from 'vue'
 import ScrollToTop from '@/components/ScrollToTop'
-import HomeView from '@/views/HomeView'
 
 const activeLink = ref('')
 const route = ref(undefined)
@@ -34,9 +33,7 @@ export default {
       handleMounted,
     })
   },
-  props: ['menuItems'],
   components: {
-    HomeView,
     ScrollToTop,
   },
 }
@@ -66,7 +63,7 @@ const onScroll = () => {
 const scrollToSection = async () => {
   await nextTick()
 
-  if (route.value.hash) {
+  if (route.value?.hash) {
     const elementToScrollId = route.value.hash.slice(1)
     const elem = document.getElementById(elementToScrollId)
 

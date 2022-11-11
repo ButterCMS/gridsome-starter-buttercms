@@ -16,7 +16,7 @@
 import Spinner from '@/components/Spinner'
 import { ref } from 'vue'
 import BlogHeader from '@/components/Blog/BlogHeader'
-import BlogContent from '@/components/Blog/BlogContent'
+import BlogContent from '@/layouts/BlogLayout'
 import SingleArticle from '@/components/Blog/SingleArticle'
 import { getButterCMS } from '@/utils/ButterCMS'
 import { basicBlogLinks } from '@/utils'

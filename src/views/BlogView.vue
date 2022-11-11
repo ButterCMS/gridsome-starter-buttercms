@@ -3,9 +3,9 @@
     <spinner v-show="loading" />
     <div v-show="!loading">
       <blog-header :heading="heading" :links="headerLinks" :text="headerText" />
-      <blog-content>
+      <blog-layout>
         <blog-posts :blog-posts="posts" />
-      </blog-content>
+      </blog-layout>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ import { ref, watch } from 'vue'
 import { getBlogCategory, getBlogTag } from '@/utils/blogUtils'
 import Spinner from '@/components/Spinner'
 import BlogHeader from '@/components/Blog/BlogHeader'
-import BlogContent from '@/components/Blog/BlogContent'
+import BlogLayout from '@/layouts/BlogLayout'
 import BlogPosts from '@/components/Blog/BlogPosts'
 
 const { setError } = useApiError()
@@ -67,7 +67,7 @@ const loadData = (route) => {
 const { posts, loading } = useBlogPosts(filter)
 
 export default {
-  components: { BlogPosts, BlogContent, BlogHeader, Spinner },
+  components: { BlogPosts, BlogHeader, Spinner, BlogLayout },
   data() {
     return {
       loading,

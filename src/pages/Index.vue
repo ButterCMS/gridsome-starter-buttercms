@@ -1,34 +1,41 @@
 <template>
   <div>
-    <Spinner v-if="loading" />
-    <NoApiKeyView v-else-if="!apiKeyExists" />
+    <NoApiKeyView v-if="!apiKeyExists" />
     <NoApiTokenView v-else-if="error" />
-    <DefaultLayout :menu-items="items" v-else>
+    <DefaultLayout v-else>
       <HomeView />
     </DefaultLayout>
   </div>
 </template>
 
+<static-query>
+query {
+	errors: allError {
+    totalCount
+  }
+}
+</static-query>
+
 <script>
-import { useApiError, useMenuItems } from '@/utils/hooks'
-import Spinner from '@/components/Spinner'
+import { useApiError } from '@/utils/hooks'
 import NoApiKeyView from '@/views/NoApiKeyView'
 import NoApiTokenView from '@/views/NoApiTokenView'
 import HomeView from '@/views/HomeView'
+import { ref } from 'vue'
 
-const { items, loading } = useMenuItems()
-const { error } = useApiError()
+const { error: apiError } = useApiError()
+const errorsWhileGenerating = ref(false)
 
 export default {
-  components: { HomeView, NoApiTokenView, NoApiKeyView, Spinner },
+  components: { HomeView, NoApiTokenView, NoApiKeyView },
   data() {
-    console.log('error: ', error)
     return {
-      items,
-      loading,
-      error,
+      error: apiError || errorsWhileGenerating,
       apiKeyExists: !!process.env.GRIDSOME_APP_BUTTER_CMS_API_KEY,
     }
+  },
+  mounted() {
+    errorsWhileGenerating.value = this.$static.errors.totalCount > 0
   },
   metaInfo: {
     title: 'Gridsome Butter CMS starter',

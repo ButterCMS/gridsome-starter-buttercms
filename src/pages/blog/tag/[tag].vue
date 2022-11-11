@@ -1,3 +1,10 @@
 <template>
-  <div>Blog Tag</div>
+  <blog-view />
 </template>
+
+<script>
+import BlogView from '@/views/BlogView'
+export default {
+  components: { BlogView },
+}
+</script>

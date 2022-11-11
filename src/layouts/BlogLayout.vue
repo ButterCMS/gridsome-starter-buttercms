@@ -6,7 +6,7 @@
           <slot />
         </div>
         <aside class="col-12 col-lg-4">
-          <blog-widget :categories="categories" />
+          <blog-widget />
         </aside>
       </div>
     </div>
@@ -14,17 +14,9 @@
 </template>
 
 <script>
-import { useCategories } from '@/utils/hooks'
 import BlogWidget from '@/components/Blog/BlogWidget'
-
-const { categories } = useCategories()
 
 export default {
   components: { BlogWidget },
-  data() {
-    return {
-      categories,
-    }
-  },
 }
 </script>

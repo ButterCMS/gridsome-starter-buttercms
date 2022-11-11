@@ -29,15 +29,16 @@
             <h3>About Us</h3>
             <ul class="links">
               <li
-                v-for="(item, index) in menuItems"
+                v-for="({ node }, index) in $static.menuItems.edges"
                 :key="index"
                 class="page-scroll"
               >
                 <a
-                  :href="'/' + item.url"
-                  :class="{ active: activeLink === item.url }"
-                  >{{ item.label }}</a
+                  :href="`/${node.url}`"
+                  :class="{ active: activeLink === node.url }"
                 >
+                  {{ node.label }}
+                </a>
               </li>
             </ul>
           </div>
@@ -57,9 +58,22 @@
   </footer>
 </template>
 
+<static-query>
+query {
+  menuItems: allMenuItems(sortBy: "index", order: ASC) {
+    edges {
+      node {
+        label,
+        url
+      }
+    }
+  }
+}
+</static-query>
+
 <script>
 export default {
-  props: ['menuItems', 'activeLink'],
+  props: ['activeLink'],
   data() {
     return {
       socialSites: ['facebook', 'linkedin', 'instagram', 'twitter'],

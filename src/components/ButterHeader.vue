@@ -35,16 +35,16 @@
                 <div class="ms-auto">
                   <ul id="nav" class="navbar-nav ms-auto">
                     <li
-                      v-for="menuItem in menuItems"
-                      :key="menuItem.url"
+                      v-for="{ node } in $static.menuItems.edges"
+                      :key="node.url"
                       class="nav-item"
                     >
                       <a
                         class="nav-link page-scroll"
-                        :class="{ active: activeLink === `/${menuItem.url}` }"
-                        :href="`/${menuItem.url}`"
+                        :class="{ active: activeLink === `/${node.url}` }"
+                        :href="`/${node.url}`"
                         @click="isTogglerActive = false"
-                        >{{ menuItem.label }}
+                        >{{ node.label }}
                       </a>
                     </li>
                   </ul>
@@ -57,6 +57,19 @@
     </div>
   </header>
 </template>
+
+<static-query>
+query {
+  menuItems: allMenuItems(sortBy: "index", order: ASC) {
+    edges {
+      node {
+        label,
+        url
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
 import { ref } from 'vue'
@@ -72,7 +85,7 @@ const onScroll = () => {
   }
 }
 export default {
-  props: ['menuItems', 'activeLink'],
+  props: ['activeLink'],
   data() {
     return {
       toggleToggler: () => {
