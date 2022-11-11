@@ -10,7 +10,8 @@
   "dependencies": {
     "buttercms": "^1.2.8",
     "gridsome": "^0.7.0",
-    "tiny-slider": "^2.9.4"
+    "tiny-slider": "^2.9.4",
+    "webpack": "4"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
