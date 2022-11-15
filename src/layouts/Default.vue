@@ -20,6 +20,7 @@ export default {
     }
   },
   mounted() {
+    route.value = this.$route
     window.addEventListener('load', scrollToSection)
     window.document.addEventListener('scroll', onScroll, { passive: true })
   },
