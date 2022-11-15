@@ -42,7 +42,11 @@ const onScroll = () => {
     document.documentElement.scrollTop ||
     document.body.scrollTop
 
-  for (let currLink of sections) {
+  if (!sections) {
+    return
+  }
+
+  sections.forEach((currLink) => {
     const currLinkHref = currLink.getAttribute('href')
     const val = currLinkHref?.replace('/', '')
     const refElement = document.querySelector(String(val))
@@ -55,20 +59,22 @@ const onScroll = () => {
     ) {
       activeLink.value = String(currLinkHref)
     }
-  }
+  })
 }
+
 const scrollToSection = async () => {
   await nextTick()
 
-  if (route.value?.hash) {
-    const elementToScrollId = route.value.hash.slice(1)
-    const elem = document.getElementById(elementToScrollId)
-
-    if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' })
-    }
-  } else {
+  if (!route.value?.hash) {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    return
+  }
+
+  const elementToScrollId = route.value.hash.slice(1)
+  const elem = document.getElementById(elementToScrollId)
+
+  if (elem) {
+    elem.scrollIntoView({ behavior: 'smooth' })
   }
 }
 

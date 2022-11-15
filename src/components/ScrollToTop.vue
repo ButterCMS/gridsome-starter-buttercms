@@ -1,6 +1,7 @@
 <template>
   <a
     href="#"
+    @click="scrollToTop"
     class="scroll-top btn-hover d-flex"
     :class="{ 'd-none': !isVisible }"
   >
@@ -13,14 +14,22 @@ import { ref } from 'vue'
 
 const isVisible = ref(false)
 const visibleThreshold = 50
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+}
+
 export default {
   data() {
     return {
       isVisible,
     }
   },
+  methods: {
+    scrollToTop,
+  },
   mounted() {
-    const onScroll = (event) => {
+    const onScroll = () => {
       isVisible.value =
         document.body.scrollTop > visibleThreshold ||
         document.documentElement.scrollTop > visibleThreshold

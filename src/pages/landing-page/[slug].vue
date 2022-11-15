@@ -1,8 +1,6 @@
 <template>
-  <div>
-    This should be the same as Index.vue !!!
-    <Index />
-  </div>
+  <!--  This should be the same as Index.vue-->
+  <Index />
 </template>
 
 <script>
