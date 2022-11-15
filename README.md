@@ -16,11 +16,16 @@ below to deploy your own copy of our starter project to the provider of your cho
 
 ## 1. Installation
 
-You can use both `yarn` or `npm` to run this project, but we recommend using `yarn`.
-In order to install it first run:
+To run this project you need to have installed both `yarn` and `Gridsome CLI tool`
+In order to install them first run:
 
 ```shell
 npm install --global yarn
+```
+And to install the Gridsome CLI:
+
+```shell
+yarn global add @gridsome/cli
 ```
 
 Then, clone the repo and install the dependencies by running `yarn install`
@@ -35,7 +40,7 @@ yarn install
 
 To fetch your ButterCMS content, add your API token as an environment variable.
 
-```bash
+```shell
 $ echo 'GRIDSOME_APP_BUTTER_CMS_API_KEY=<Your API Token>' >> .env
 ```
 
@@ -43,12 +48,14 @@ $ echo 'GRIDSOME_APP_BUTTER_CMS_API_KEY=<Your API Token>' >> .env
 
 To view the app in the browser, you'll need to run the local development server:
 
-```bash
-$ npm run develop
-```
-or
-```bash
+```shell
 $ yarn develop
+```
+
+or
+
+```shell
+gridsome develop
 ```
 
 Congratulations! Your starter project is now live at [http://localhost:8080/](http://localhost:8080/).
