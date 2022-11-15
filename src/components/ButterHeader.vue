@@ -77,11 +77,10 @@ import { ref } from 'vue'
 const isSticky = ref(true)
 const isTogglerActive = ref(false)
 
-const headerNavbar = ref(null)
-const onScroll = () => {
-  if (headerNavbar.value) {
-    const sticky = headerNavbar.value.offsetTop
-    isSticky.value = window.scrollY > sticky
+const onScroll = (headerNavbar) => {
+  if (headerNavbar) {
+    const stickyThreshold = headerNavbar.offsetTop
+    isSticky.value = window.scrollY > stickyThreshold
   }
 }
 export default {
@@ -93,12 +92,15 @@ export default {
       },
       isSticky,
       isTogglerActive,
-      headerNavbar,
     }
   },
   mounted() {
-    onScroll()
-    window.document.addEventListener('scroll', onScroll, { passive: true })
+    onScroll(this.$refs.headerNavbar)
+    window.document.addEventListener(
+      'scroll',
+      () => onScroll(this.$refs.headerNavbar),
+      { passive: true }
+    )
     return () => window.document.removeEventListener('scroll', onScroll)
   },
 }
