@@ -1,15 +1,14 @@
 <template>
   <div>
-    <butter-header :active-link="activeLink" />
+    <ButterHeader :active-link="activeLink" />
     <slot />
     <ScrollToTop />
-    <butter-footer :active-link="activeLink" />
+    <ButterFooter :active-link="activeLink" />
   </div>
 </template>
 
 <script>
 import { nextTick, provide, ref } from 'vue'
-import ScrollToTop from '@/components/ScrollToTop'
 
 const activeLink = ref('')
 const route = ref(undefined)
@@ -29,12 +28,9 @@ export default {
     window.document.removeEventListener('scroll', onScroll)
   },
   setup() {
-    provide('layout', {
+    provide('defaultLayout', {
       handleMounted,
     })
-  },
-  components: {
-    ScrollToTop,
   },
 }
 

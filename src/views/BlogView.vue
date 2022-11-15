@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <DefaultLayout>
     <spinner v-show="loading" />
     <div v-show="!loading">
       <blog-header :heading="heading" :links="headerLinks" :text="headerText" />
@@ -7,7 +7,7 @@
         <blog-posts :blog-posts="posts" />
       </blog-layout>
     </div>
-  </div>
+  </DefaultLayout>
 </template>
 
 <script>

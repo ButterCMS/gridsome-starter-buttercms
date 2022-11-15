@@ -94,7 +94,7 @@ export default {
     }
   },
   async mounted() {
-    const { handleMounted } = inject('layout')
+    const { handleMounted } = inject('defaultLayout')
 
     try {
       const butterCMS = getButterCMS()

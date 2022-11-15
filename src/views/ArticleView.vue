@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <DefaultLayout>
     <spinner v-show="loading" />
     <blog-header
       :heading="article.title"
@@ -9,7 +9,7 @@
     <blog-content>
       <single-article v-if="article" :article="article" />
     </blog-content>
-  </div>
+  </DefaultLayout>
 </template>
 
 <script>
