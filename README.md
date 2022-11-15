@@ -17,6 +17,7 @@ below to deploy your own copy of our starter project to the provider of your cho
 ## 1. Installation
 
 To run this project you need to have installed both `yarn` and `Gridsome CLI tool`
+
 In order to install them first run:
 
 ```shell

@@ -23,16 +23,17 @@
 </template>
 
 <script>
-import { tns } from 'tiny-slider'
 import Testimonial from '@/components/Testimonial'
 
 export default {
   components: { Testimonial },
   props: ['fields'],
   mounted() {
-    if (typeof window === 'undefined') {
+    if (!window) {
       return
     }
+
+    const tns = require('tiny-slider')
 
     tns({
       container: '.testimonial-active',
