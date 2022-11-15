@@ -35,7 +35,7 @@ export default {
 
     const tns = require('tiny-slider')
 
-    tns({
+    tns.tns({
       container: '.testimonial-active',
       autoplay: true,
       autoplayTimeout: 5000,
