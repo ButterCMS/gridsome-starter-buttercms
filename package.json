@@ -3,23 +3,24 @@
   "private": true,
   "scripts": {
     "build": "gridsome build",
-    "develop": "gridsome develop",
+    "start": "gridsome develop",
+    "serve": "gridsome serve",
     "explore": "gridsome explore",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "buttercms": "^1.2.8",
-    "gridsome": "^0.7.0",
+    "buttercms": "^1.2.9",
+    "gridsome": "^0.7.23",
     "tiny-slider": "^2.9.4",
-    "webpack": "4"
+    "webpack": "5"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.1.0",
+    "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^16.11.26",
     "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-prettier": "^7.0.0",
-    "eslint": "8.22.0",
+    "eslint": "^7",
     "eslint-plugin-gridsome": "^1.6.2",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.7.0",
