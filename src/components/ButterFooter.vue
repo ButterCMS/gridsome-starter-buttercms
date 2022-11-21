@@ -8,7 +8,7 @@
               <a href="https://buttercms.com">
                 <img
                   width="200"
-                  src="https://cdn.buttercms.com/PBral0NQGmmFzV0uG7Q6"
+                  src="../assets/images/butter-logo.png"
                   alt="logo"
                   loading="lazy"
                 />
