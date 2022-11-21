@@ -110,5 +110,9 @@ export default {
       setError(e)
     }
   },
+  metaInfo() {
+    const seoData = this.$static.homePageData.edges[0].node.fields.seo
+    return this.$seo(seoData)
+  },
 }
 </script>

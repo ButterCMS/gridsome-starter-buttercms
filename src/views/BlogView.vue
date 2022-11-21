@@ -86,5 +86,12 @@ export default {
       setError(e)
     }
   },
+  metaInfo() {
+    const { value: title } = seoTitle
+    return this.$seo({
+      title,
+      description: `Sample blog powered by ButterCMS, showing ${title}`,
+    })
+  },
 }
 </script>

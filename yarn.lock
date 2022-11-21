@@ -3925,7 +3925,7 @@ debug@^3.2.7:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.1.0, debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
+debug@^4.1.0, debug@^4.1.1, debug@^4.2.0, debug@^4.3.2, debug@^4.3.4:
   version "4.3.4"
   resolved "https://registry.npmjs.org/debug/-/debug-4.3.4.tgz"
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
@@ -5725,6 +5725,14 @@ graphql@^14.4.2:
   integrity sha512-l0xWZpoPKpppFzMfvVyFmp9vLN7w/ZZJPefUicMCepfJeQ8sMcztloGYY9DfjVPo6tIUDzU5Hw3MUbIjj9AVVA==
   dependencies:
     iterall "^1.2.2"
+
+gridsome-plugin-seo@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/gridsome-plugin-seo/-/gridsome-plugin-seo-1.0.2.tgz#272a98196ffb6d03263c06152e57528abcf772c3"
+  integrity sha512-iDCbNb4F+zMvzpXPyL7NAky0s3IN52LFLI8Bysor/wtw4vFTpdAhKsa/t4efihNNIpNi9QRUiknmNC34o/6P/Q==
+  dependencies:
+    lodash "^4.17.20"
+    nuxt-seo "^1.3.1"
 
 gridsome@^0.7.0:
   version "0.7.23"
@@ -8022,6 +8030,13 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz"
   integrity sha512-4jbtZXNAsfZbAHiiqjLPBiCl16dES1zI4Hpzzxw61Tk+loF+sBDBKx1ICKKKwIqQ7M0mFn1TmkN7euSncWgHiQ==
+
+nuxt-seo@^1.3.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/nuxt-seo/-/nuxt-seo-1.6.1.tgz#08e9365390d5eae5065bfbf88f272a104c88eb5d"
+  integrity sha512-GROnW5ntmmmmeOUCdYsmCEHJ+Wo0Sil+5ma4N5UVreXUTNNw9zZ9lJ6jO0/cDU24oo7nUvDAUNxzIqCjKKJoYQ==
+  dependencies:
+    debug "^4.2.0"
 
 oauth-sign@~0.9.0:
   version "0.9.0"

@@ -6,5 +6,9 @@
 
 module.exports = {
   siteName: 'Gridsome Starter ButterCMS',
-  plugins: [],
+  plugins: [
+    {
+      use: 'gridsome-plugin-seo',
+    },
+  ],
 }
