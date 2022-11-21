@@ -39,6 +39,55 @@ function createCollection(addCollection, typeName, data) {
 
 module.exports = function (api) {
   api.loadSource(async ({ addCollection }) => {
+    if (!butterCMS) {
+      // Unfortunately there's no dynamic way to create GraphQL queries, so we have to load some empty data
+      createCollection(addCollection, 'Error', { errorType: 'NO_API_TOKEN' })
+      createCollection(addCollection, 'MenuItems', {
+        label: '',
+        url: '',
+        index: 0,
+      })
+      createCollection(addCollection, 'HomePageData', {
+        fields: {
+          seo: {
+            title: '',
+            description: '',
+          },
+          body: {
+            type: '',
+            fields: {
+              headline: '',
+              subheadline: '',
+              image: '',
+              button_label: '',
+              button_url: '',
+              scroll_anchor_id: '',
+              image_position: '',
+              features: {
+                headline: '',
+                description: '',
+                icon: '',
+              },
+              testimonial: {
+                quote: '',
+                name: '',
+                title: '',
+              },
+            },
+          },
+        },
+      })
+      createCollection(addCollection, 'BlogPosts', {
+        title: '',
+        slug: '',
+        summary: '',
+        featured_image_alt: '',
+        featured_image: '',
+      })
+      createCollection(addCollection, 'Categories', { name: '', slug: '' })
+      return
+    }
+
     const errorCollection = addCollection({
       typeName: 'Error',
     })
@@ -65,7 +114,7 @@ module.exports = function (api) {
       })
       .catch((e) => errorCollection.addNode(e))
 
-    await butterCMS?.post
+    await butterCMS.post
       .list()
       .then((res) => {
         const data = res.data?.data?.map((blog) => {
@@ -80,7 +129,7 @@ module.exports = function (api) {
       })
       .catch((e) => errorCollection.addNode(e))
 
-    await butterCMS?.category
+    await butterCMS.category
       .list()
       .then((res) => {
         createCollection(addCollection, 'Categories', res?.data?.data)

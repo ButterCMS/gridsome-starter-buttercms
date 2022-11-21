@@ -1,25 +1,11 @@
 <template>
-  <div>
-    <NoApiKeyView v-if="!apiKeyExists" />
-    <NoApiTokenView v-else-if="error" />
-    <DefaultLayout v-else>
-      <HomeView />
-    </DefaultLayout>
-  </div>
+  <DefaultLayout>
+    <HomeView />
+  </DefaultLayout>
 </template>
-
-<static-query>
-query {
-	errors: allError {
-    totalCount
-  }
-}
-</static-query>
 
 <script>
 import { useApiError } from '@/utils/hooks'
-import NoApiKeyView from '@/views/NoApiKeyView'
-import NoApiTokenView from '@/views/NoApiTokenView'
 import HomeView from '@/views/HomeView'
 import { ref } from 'vue'
 
@@ -27,7 +13,7 @@ const { error: apiError } = useApiError()
 const errorsWhileGenerating = ref(false)
 
 export default {
-  components: { HomeView, NoApiTokenView, NoApiKeyView },
+  components: { HomeView },
   data() {
     return {
       error: apiError || errorsWhileGenerating,
@@ -36,9 +22,6 @@ export default {
   },
   mounted() {
     errorsWhileGenerating.value = this.$static.errors.totalCount > 0
-  },
-  metaInfo: {
-    title: 'Gridsome Butter CMS starter',
   },
 }
 </script>

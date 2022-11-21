@@ -1,25 +1,47 @@
 <template>
   <div>
-    <ButterHeader :active-link="activeLink" />
-    <slot />
-    <ScrollToTop />
-    <ButterFooter :active-link="activeLink" />
+    <NoApiKeyView v-if="!apiKeyExists" />
+    <NoApiTokenView v-else-if="error" />
+    <div v-else>
+      <ButterHeader :active-link="activeLink" />
+      <slot />
+      <ScrollToTop />
+      <ButterFooter :active-link="activeLink" />
+    </div>
   </div>
 </template>
 
+<static-query>
+query {
+	errors: allError {
+    totalCount
+  }
+}
+</static-query>
+
 <script>
 import { nextTick, provide, ref } from 'vue'
+import { useApiError } from '@/utils/hooks'
+import NoApiTokenView from '@/views/NoApiTokenView'
+import NoApiKeyView from '@/views/NoApiKeyView'
 
 const activeLink = ref('')
 const route = ref(undefined)
+const { error: apiError } = useApiError()
+const errorsWhileGenerating = ref(false)
 
 export default {
+  components: { NoApiTokenView, NoApiKeyView },
+
   data() {
     return {
       activeLink,
+      error: apiError || errorsWhileGenerating,
+      apiKeyExists: !!process.env.GRIDSOME_APP_BUTTER_CMS_API_KEY,
     }
   },
   mounted() {
+    errorsWhileGenerating.value = this.$static.errors.totalCount > 0
     route.value = this.$route
     window.addEventListener('load', scrollToSection)
     window.document.addEventListener('scroll', onScroll, { passive: true })
