@@ -1,7 +1,7 @@
 <template>
   <div>
     <NoApiKeyView v-if="!apiKeyExists" />
-    <NoApiTokenView v-else-if="error" />
+    <NoApiTokenView v-else-if="error || $static.errors.totalCount > 0" />
     <div v-else>
       <ButterHeader :active-link="activeLink" />
       <slot />
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       activeLink,
-      error: apiError || errorsWhileGenerating,
+      error: apiError,
       apiKeyExists: !!process.env.GRIDSOME_APP_BUTTER_CMS_API_KEY,
     }
   },

@@ -6,6 +6,10 @@
 
 module.exports = {
   siteName: 'Gridsome Starter ButterCMS',
+  icon: {
+    favicon: './src/favicon.png',
+    touchicon: './src/favicon.png',
+  },
   plugins: [
     {
       use: 'gridsome-plugin-seo',

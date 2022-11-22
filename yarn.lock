@@ -2806,7 +2806,7 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.npmjs.org/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz"
   integrity sha512-HpGFw18DgFWlncDfjTa2rcQ4W88O1mC8e8yZ2AvQY5KDaktSTwo+KRf6nHK6FRI5FyRyb/5T6+TSxfP7QyGsmQ==
 
-buttercms@^1.2.8:
+buttercms@^1.2.6, buttercms@^1.2.8:
   version "1.2.9"
   resolved "https://registry.npmjs.org/buttercms/-/buttercms-1.2.9.tgz"
   integrity sha512-CNcAASy45Py9Lmp+9RAeIxzJYoR9wFiuJFeANoXFmphqIkq5p3PsBoT3HOhetRCzHA5nQyYdekBKu1bQuHy7dg==
@@ -5733,6 +5733,14 @@ gridsome-plugin-seo@^1.0.2:
   dependencies:
     lodash "^4.17.20"
     nuxt-seo "^1.3.1"
+
+gridsome-source-buttercms@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/gridsome-source-buttercms/-/gridsome-source-buttercms-2.0.1.tgz#e115493e3f955e8027ef64553d1f94b568edef77"
+  integrity sha512-tzxDVadVeAUXhlcmacq99QrwnTLzymVpiyHjDoXOkqgXsLHAFjsl4Ejhz7QEHIX5FJFbIWU+Wvwjv6JhnR69cA==
+  dependencies:
+    buttercms "^1.2.6"
+    camelcase "^5.3.1"
 
 gridsome@^0.7.0:
   version "0.7.23"

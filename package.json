@@ -11,6 +11,7 @@
     "buttercms": "^1.2.8",
     "gridsome": "^0.7.0",
     "gridsome-plugin-seo": "^1.0.2",
+    "gridsome-source-buttercms": "^2.0.1",
     "tiny-slider": "^2.9.4",
     "webpack": "4"
   },
