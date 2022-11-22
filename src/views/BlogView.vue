@@ -76,7 +76,6 @@ export default {
   data() {
     return {
       loading,
-      seoTitle,
       heading,
       headerLinks,
       headerText,
