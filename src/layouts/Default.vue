@@ -1,7 +1,7 @@
 <template>
   <div>
     <NoApiKeyView v-if="!apiKeyExists" />
-    <NoApiTokenView v-else-if="error || $static.errors.totalCount > 0" />
+    <NoApiTokenView v-else-if="$static.errors.totalCount > 0" />
     <div v-else>
       <ButterHeader :active-link="activeLink" />
       <slot />
@@ -21,13 +21,11 @@ query {
 
 <script>
 import { nextTick, provide, ref } from 'vue'
-import { useApiError } from '@/utils/hooks'
 import NoApiTokenView from '@/views/NoApiTokenView'
 import NoApiKeyView from '@/views/NoApiKeyView'
 
 const activeLink = ref('')
 const route = ref(undefined)
-const { error: apiError } = useApiError()
 const errorsWhileGenerating = ref(false)
 
 export default {
@@ -36,7 +34,6 @@ export default {
   data() {
     return {
       activeLink,
-      error: apiError,
       apiKeyExists: !!process.env.GRIDSOME_APP_BUTTER_CMS_API_KEY,
     }
   },
