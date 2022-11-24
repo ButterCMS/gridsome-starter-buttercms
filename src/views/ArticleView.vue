@@ -39,5 +39,17 @@ export default {
       basicBlogLinks,
     }
   },
+  metaInfo() {
+    if (!article.value) {
+      return
+    }
+
+    const { value: articleData } = article
+    return this.$seo({
+      title: articleData.title,
+      description: articleData.meta_description,
+      image: articleData.featured_image,
+    })
+  },
 }
 </script>

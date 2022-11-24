@@ -56,16 +56,54 @@ module.exports = function (api) {
         )
         createCollection(addCollection, 'MenuItems', data)
       })
-      .catch((e) => errorCollection.addNode(e))
+      .catch((e) => {
+        errorCollection.addNode({ errorMessage: e.message })
+        createCollection(addCollection, 'MenuItems', {
+          label: '',
+          url: '',
+        })
+      })
 
     await butterCMS.page
       .retrieve('landing-page', 'landing-page-with-components')
       .then((res) => {
         createCollection(addCollection, 'HomePageData', res.data.data)
       })
-      .catch((e) => errorCollection.addNode(e))
+      .catch((e) => {
+        errorCollection.addNode({ errorMessage: e.message })
+        createCollection(addCollection, 'HomePageData', {
+          fields: {
+            seo: {
+              title: '',
+              description: '',
+            },
+            body: {
+              type: '',
+              fields: {
+                headline: '',
+                subheadline: '',
+                image: '',
+                button_label: '',
+                button_url: '',
+                scroll_anchor_id: '',
+                image_position: '',
+                features: {
+                  headline: '',
+                  description: '',
+                  icon: '',
+                },
+                testimonial: {
+                  quote: '',
+                  name: '',
+                  title: '',
+                },
+              },
+            },
+          },
+        })
+      })
 
-    await butterCMS?.post
+    await butterCMS.post
       .list()
       .then((res) => {
         const data = res.data?.data?.map((blog) => {
@@ -78,14 +116,26 @@ module.exports = function (api) {
         })
         createCollection(addCollection, 'BlogPosts', data)
       })
-      .catch((e) => errorCollection.addNode(e))
+      .catch((e) => {
+        errorCollection.addNode({ errorMessage: e.message })
+        createCollection(addCollection, 'BlogPosts', {
+          title: '',
+          slug: '',
+          summary: '',
+          featured_image_alt: '',
+          featured_image: '',
+        })
+      })
 
-    await butterCMS?.category
+    await butterCMS.category
       .list()
       .then((res) => {
         createCollection(addCollection, 'Categories', res?.data?.data)
       })
-      .catch((e) => errorCollection.addNode(e))
+      .catch((e) => {
+        errorCollection.addNode({ errorMessage: e.message })
+        createCollection(addCollection, 'Categories', { name: '', slug: '' })
+      })
   })
 
   api.createPages(({ createPage }) => {

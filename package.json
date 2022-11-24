@@ -11,6 +11,7 @@
   "dependencies": {
     "buttercms": "^1.2.9",
     "gridsome": "^0.7.23",
+    "gridsome-plugin-seo": "^1.0.2",
     "tiny-slider": "^2.9.4",
     "webpack": "4"
   },

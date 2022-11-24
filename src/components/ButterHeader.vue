@@ -6,10 +6,7 @@
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
               <a class="navbar-brand" href="https://buttercms.com">
-                <img
-                  src="https://cdn.buttercms.com/PBral0NQGmmFzV0uG7Q6"
-                  alt="Logo"
-                />
+                <img src="../assets/images/butter-logo.png" alt="Logo" />
               </a>
               <button
                 class="navbar-toggler"

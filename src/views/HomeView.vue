@@ -3,24 +3,24 @@
     <div v-if="pageData">
       <template v-for="(item, index) in pageData">
         <hero-section
-          v-if="item.type === 'hero'"
+          v-if="item?.type === 'hero'"
           :key="index"
-          :fields="item.fields"
+          :fields="item?.fields"
         />
         <two-columns-with-image-section
-          v-if="item.type === 'two_column_with_image'"
+          v-if="item?.type === 'two_column_with_image'"
           :key="index"
-          :fields="item.fields"
+          :fields="item?.fields"
         />
         <features-section
-          v-if="item.type === 'features'"
+          v-if="item?.type === 'features'"
           :key="index"
-          :fields="item.fields"
+          :fields="item?.fields"
         />
         <testimonials-section
-          v-if="item.type === 'testimonials'"
+          v-if="item?.type === 'testimonials'"
           :key="index"
-          :fields="item.fields"
+          :fields="item?.fields"
         />
       </template>
       <blog-section />
@@ -109,6 +109,10 @@ export default {
     } catch (e) {
       setError(e)
     }
+  },
+  metaInfo() {
+    const seoData = this.$static.homePageData.edges[0].node.fields.seo
+    return this.$seo(seoData)
   },
 }
 </script>

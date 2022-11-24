@@ -12,11 +12,7 @@
           </div>
         </div>
         <div class="col-xxl-6 col-xl-6 col-lg-6">
-          <img
-            width="300"
-            src="https://cdn.buttercms.com/9bPtzdJ6QSWkySNjlmyR"
-            alt=""
-          />
+          <img width="300" src="../assets/images/cog.png" alt="" />
           <div class="hero-image text-center text-lg-end"></div>
         </div>
       </div>
@@ -26,7 +22,7 @@
 
 <script>
 export default {
-  setup() {
+  mounted() {
     // eslint-disable-next-line no-console
     console.error(
       'Your Butter token might be set to an invalid value. Please verify your token is correct.'
