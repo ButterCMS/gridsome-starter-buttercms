@@ -38,7 +38,7 @@ const loadData = (route) => {
     getBlogCategory(slug)
       .then((category) => {
         headerText.value = `Category: ${category.name}`
-        seoTitle.value = `Category: ${category.name}`
+        seoTitle.value = `Sample Blog - category: ${category.name}`
         seoDescription.value = `Sample blog powered by ButterCMS, showing category: ${category.name}`
       })
       .catch((e) => setError(e))
@@ -51,7 +51,7 @@ const loadData = (route) => {
     getBlogTag(slug)
       .then((tag) => {
         headerText.value = `Tag: ${tag.name}`
-        seoTitle.value = `Tag: ${tag.name}`
+        seoTitle.value = `Sample Blog - tag: ${tag.name}`
         seoDescription.value = `Sample blog powered by ButterCMS, showing tag: ${tag.name}"`
       })
       .catch((e) => setError(e))
@@ -59,13 +59,13 @@ const loadData = (route) => {
     filter.value = String(route.query['q'])
     heading.value = 'Search Results'
     headerText.value = `Search: ${route.query['q']}`
-    seoTitle.value = `search results for ${filter.value}`
+    seoTitle.value = `Sample Blog - search results for ${filter.value}`
     seoDescription.value = `Sample blog powered by ButterCMS, showing search results for query: "${route.query['q']}"`
   } else {
     headerText.value = heading.value = 'All Blog Posts'
     headerLinks.value = [basicBlogLinks[0]]
     filter.value = {}
-    seoTitle.value = `All Posts`
+    seoTitle.value = `Sample Blog - All Posts`
     seoDescription.value = `Sample blog powered by ButterCMS, showing all posts.`
   }
 }

@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome Starter ButterCMS',
+  titleTemplate: '%s',
   icon: {
     favicon: './src/favicon.png',
     touchicon: './src/favicon.png',
