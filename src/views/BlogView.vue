@@ -9,7 +9,6 @@
     </div>
   </DefaultLayout>
 </template>
-
 <script>
 import { basicBlogLinks } from '@/utils'
 import { useApiError, useBlogPosts } from '@/utils/hooks'

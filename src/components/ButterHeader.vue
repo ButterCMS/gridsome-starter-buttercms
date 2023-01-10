@@ -40,6 +40,7 @@
                         class="nav-link page-scroll"
                         :class="{ active: activeLink === `/${node.url}` }"
                         :href="`/${node.url}`"
+                        :key="node.url"
                         @click="isTogglerActive = false"
                         >{{ node.label }}
                       </a>

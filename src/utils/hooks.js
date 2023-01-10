@@ -10,6 +10,7 @@ const butterCMS = getButterCMS()
 export const useBlogPosts = (filter) => {
   const posts = ref([])
   const loading = ref(true)
+
   const loadPosts = () => {
     if (typeof filter.value == 'object') {
       butterCMS?.post
