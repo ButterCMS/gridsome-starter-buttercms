@@ -98,7 +98,7 @@ export default {
       loading,
     }
   },
-  async beforeMount() {
+  async mounted() {
     const { handleMounted } = inject('defaultLayout')
 
     try {
