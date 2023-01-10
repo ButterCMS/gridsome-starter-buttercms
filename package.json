@@ -4,7 +4,7 @@
   "scripts": {
     "build": "gridsome build",
     "start": "gridsome develop",
-    "serve": "npx serve dist",
+    "serve": "serve dist",
     "explore": "gridsome explore",
     "lint": "vue-cli-service lint"
   },
@@ -25,7 +25,8 @@
     "eslint-plugin-gridsome": "^1.6.2",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.7.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "serve": "^14.1.2"
   },
   "engines": {
     "node": "16"
