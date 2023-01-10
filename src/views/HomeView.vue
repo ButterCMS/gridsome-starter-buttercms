@@ -1,5 +1,6 @@
 <template>
   <div>
+    <spinner v-show="loading" />
     <div v-if="pageData">
       <template v-for="(item, index) in pageData.body">
         <hero-section
@@ -79,6 +80,7 @@ import HeroSection from '@/components/Homepage/HeroSection'
 
 const { setError } = useApiError()
 const pageData = ref(null)
+const loading = ref(true)
 
 export default {
   components: {
@@ -91,6 +93,7 @@ export default {
   data() {
     return {
       pageData,
+      loading
     }
   },
   async mounted() {
@@ -109,6 +112,8 @@ export default {
       } else {
         pageData.value = this.$static.homePageData.edges[0].node.fields
       }
+
+      loading.value = false
 
       await nextTick()
       handleMounted()
