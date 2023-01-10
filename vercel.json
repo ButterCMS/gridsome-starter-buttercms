@@ -1,5 +1,5 @@
 {
   "framework": "gridsome",
   "installCommand": "npm install",
-  "buildCommand": "npm build"
+  "buildCommand": "npm run build"
 }
