@@ -27,13 +27,9 @@
                 {{ formatTime(post.published) }}</a
               >
             </li>
-            <li>
-              <g-link
-                v-for="tag in post.tags"
-                :key="tag.slug"
-                :to="`/blog/tag/${tag.slug}/`"
-                class="tag"
-              >
+
+            <li v-for="tag in post.tags" :key="tag.slug">
+              <g-link :to="`/blog/tag/${tag.slug}/`" class="tag">
                 <i class="lni lni-tag"></i> {{ tag.name }}
               </g-link>
             </li>
