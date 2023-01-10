@@ -39,7 +39,7 @@
                       <g-link
                         class="nav-link page-scroll"
                         :class="{ active: activeLink === `/${node.url}` }"
-                        :to="`/${node.url}/`"
+                        :to="`/` + node.url + `/`"
                         :key="node.url"
                         >{{ node.label }}
                       </g-link>
