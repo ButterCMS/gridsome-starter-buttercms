@@ -77,6 +77,7 @@ import TestimonialsSection from '@/components/Homepage/TestimonialsSection'
 import BlogSection from '@/components/Homepage/BlogSection'
 import TwoColumnsWithImageSection from '@/components/Homepage/TwoColumnsWithImageSection'
 import HeroSection from '@/components/Homepage/HeroSection'
+import Spinner from '@/components/Spinner'
 
 const { setError } = useApiError()
 const pageData = ref(null)
@@ -89,11 +90,12 @@ export default {
     BlogSection,
     TestimonialsSection,
     FeaturesSection,
+    Spinner,
   },
   data() {
     return {
       pageData,
-      loading
+      loading,
     }
   },
   async mounted() {
