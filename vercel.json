@@ -1,0 +1,5 @@
+{
+  "framework": "gridsome",
+  "installCommand": "npm install",
+  "buildCommand": "npm build"
+}
