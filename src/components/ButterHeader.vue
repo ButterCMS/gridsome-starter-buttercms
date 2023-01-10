@@ -36,13 +36,14 @@
                       :key="node.url"
                       class="nav-item"
                     >
-                      <g-link
+                      <a
                         class="nav-link page-scroll"
                         :class="{ active: activeLink === `/${node.url}` }"
-                        :to="`/` + node.url + `/`"
+                        :href="`/${node.url}`"
                         :key="node.url"
+                        @click="isTogglerActive = false"
                         >{{ node.label }}
-                      </g-link>
+                      </a>
                     </li>
                   </ul>
                 </div>
