@@ -9,6 +9,10 @@ project to the provider of your choice.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FButterCMS%2Fgridsome-starter-buttercms&env=GRIDSOME_APP_BUTTER_CMS_API_KEY&envDescription=Your%20ButterCMS%20API%20Token&envLink=https%3A%2F%2Fbuttercms.com%2Fsettings%2F&project-name=gridsome-starter-buttercms&repo-name=gridsome-starter-buttercms&redirect-url=https%3A%2F%2Fbuttercms.com%2Fonboarding%2Fvercel-starter-deploy-callback%2F&production-deploy-hook=Deploy%20Triggered%20from%20ButterCMS&demo-title=ButterCMS%20Gridsome%20Starter&demo-description=Fully%20integrated%20with%20your%20ButterCMS%20account&demo-url=https%3A%2F%2Fgridsome-starter-buttercms-demo.vercel.app%2F&demo-image=https://cdn.buttercms.com/r0tGK8xFRti2iRKBJ0eY&repository-name=gridsome-starter-buttercms) 
 
+## Important Note: 
+
+As of the time of this writing, it appears that development on the Gridsome framework has slowed. As such, this starter project will not be updated/maintained further unless a new version of Gridsome releases/it appears that development is continuing. This starter project can be considered deprecated until further notice.
+
 ## 1. Installation
 
 First, clone the repo and install the dependencies by running `npm install`
